@@ -5,6 +5,8 @@ import { winstonConfig } from './configs/logger.config';
 import { LoggingInterceptor } from './common/interceptors/log.interceptor';
 import { ResponseInterceptor } from './common/interceptors/response.interceptor';
 import { BadRequestException, ValidationPipe } from '@nestjs/common';
+import cookieParser from "cookie-parser"
+
 
 async function bootstrap() {
   
@@ -12,6 +14,7 @@ async function bootstrap() {
       logger: WinstonModule.createLogger(winstonConfig)
   });
 
+  app.use(cookieParser());
   app.useGlobalInterceptors(
     new LoggingInterceptor(),
     new ResponseInterceptor()

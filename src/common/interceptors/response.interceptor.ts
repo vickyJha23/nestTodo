@@ -8,7 +8,6 @@ export class ResponseInterceptor implements NestInterceptor{
       intercept(context: ExecutionContext, next: CallHandler<any>): Observable<any> | Promise<Observable<any>> {
              const response = context.switchToHttp().getResponse();
             return next.handle().pipe(map((data) => {
-
                 return {
                     success: true,
                     message: data?.message || "Request successfull",
