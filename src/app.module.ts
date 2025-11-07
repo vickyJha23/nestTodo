@@ -9,6 +9,7 @@ import { TodosModule } from './modules/todos/todos.module';
 import { AdminModule } from './modules/admin/admin.module';
 import redisConfig from './configs/redis.config';
 import mailConfig from './configs/mail.config';
+import { MailModule } from './common/mail/mail.module';
 
 
 @Module({
@@ -22,7 +23,8 @@ import mailConfig from './configs/mail.config';
           AuthModule,
           UsersModule,
           AdminModule,  
-          TodosModule
+          TodosModule,
+          MailModule
       ]
 })
 

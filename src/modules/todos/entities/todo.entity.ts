@@ -7,11 +7,12 @@ export class Todo {
 
      @PrimaryGeneratedColumn('uuid')   
      id: string;
-     @Column()
+
+     @Column({unique: true})
      title: string;
 
      @Column({default: false})
-     isCompleted: string;
+     isCompleted: boolean;
 
      @ManyToOne(() => User, (user) => user.todos, {
           onDelete: "CASCADE"
